@@ -1,0 +1,425 @@
+:root {
+    --primary-color: #F8BBD0; /* Ljusrosa, lekfull */
+    --secondary-color: #BBDEFB; /* Ljusblå */
+    --accent-color: #FFECB3; /* Ljusgul/creme */
+    --text-dark: #424242;
+    --text-light: #616161;
+    --background-light: #FCE4EC; /* Mycket ljusrosa bakgrund */
+    --background-card: #FFFFFF;
+    --button-primary: #81C784; /* Grön för knappar */
+    --button-hover: #66BB6A;
+    --shadow-soft: 0 6px 15px rgba(0, 0, 0, 0.08);
+    --border-radius-large: 20px;
+    --border-radius-medium: 12px;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif; /* Lätt och modern font */
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* Förhindra horisontell scroll */
+}
+
+.header-image {
+    width: 100%;
+    height: 300px; /* Stor bild på toppen */
+    background-image: url('https://source.unsplash.com/random/1600x300/?cocktails,drinks,party'); /* Byt ut till en egen bild! */
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: var(--border-radius-large);
+    border-bottom-right-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 40px;
+}
+
+.container {
+    background-color: var(--background-card);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+    margin-top: -150px; /* Lyfta upp containern över bilden */
+    position: relative;
+    z-index: 10; /* Se till att den ligger över bilden */
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive; /* Lekfull rubrikfont */
+    font-size: 3.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+}
+
+.tagline {
+    font-size: 1.2em;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* Alkoholinmatning */
+.alcohol-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.checkbox-label {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: var(--border-radius-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.checkbox-label:hover {
+    background-color: #90CAF9; /* Ljusare blå vid hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.checkbox-label input[type="checkbox"] {
+    position: absolute; /* Dölj standardkryssrutan */
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom-checkbox {
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked ~ .custom-checkbox {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkbox-label input[type="checkbox"]:checked ~ .custom-checkbox::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg) translate(4px, -2px); /* Centrera bocken */
+}
+
+/* Knapp styling */
+.action-button {
+    background-color: var(--button-primary);
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px; /* Mjuk och rund knapp */
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
+}
+
+.action-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Drinkförslag och detaljer */
+.suggestions-area {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--secondary-color);
+}
+
+.drink-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Anpassar sig till skärmbredd */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.drink-card {
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Se till att korten är lika höga */
+}
+
+.drink-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.drink-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius-large);
+    border-top-right-radius: var(--border-radius-large);
+}
+
+.drink-card-content {
+    padding: 20px;
+    flex-grow: 1; /* Låt innehållet ta upp tillgängligt utrymme */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.drink-card h3 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-family: 'Pacifico', cursive;
+}
+
+.drink-card p {
+    font-size: 0.95em;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.drink-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--text-dark);
+    padding-top: 15px;
+    border-top: 1px dashed var(--accent-color);
+}
+
+.drink-card .card-footer span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Meddelande om inga förslag */
+.no-suggestions-message {
+    font-size: 1.1em;
+    color: var(--text-light);
+    margin-top: 30px;
+    background-color: var(--accent-color);
+    padding: 20px;
+    border-radius: var(--border-radius-medium);
+}
+
+/* Dölj/Visa klass */
+.hidden {
+    display: none;
+}
+
+/* Modalfönster */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* För att ge lite marginal */
+}
+
+.modal-content {
+    background-color: var(--background-card);
+    margin: auto;
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    max-height: 90vh; /* Begränsa höjden */
+    overflow-y: auto; /* Scroll om innehållet är för stort */
+    text-align: left;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: var(--text-light);
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+}
+
+.modal-body {
+    padding-top: 20px;
+}
+
+.modal-drink-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: var(--border-radius-medium);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.modal-content h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.modal-description {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.modal-details,
+.modal-profile,
+.modal-ingredients,
+.modal-instructions {
+    background-color: var(--background-light);
+    padding: 20px;
+    border-radius: var(--border-radius-medium);
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.modal-details p,
+.modal-profile ul li,
+.modal-ingredients ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: var(--text-dark);
+}
+
+.modal-profile h4,
+.modal-ingredients h4,
+.modal-instructions h4 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.modal-ingredients ul,
+.modal-instructions ol {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-ingredients ul li::before {
+    content: '✨'; /* Lekfull ikon */
+    margin-right: 10px;
+}
+
+.modal-instructions ol li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.modal-instructions ol li strong {
+    color: var(--primary-color);
+}
+
+
+/* Responsivitet */
+@media (max-width: 768px) {
+    .header-image {
+        height: 200px;
+    }
+    .container {
+        padding: 20px;
+        margin-top: -100px;
+    }
+    header h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .alcohol-options {
+        flex-direction: column; /* Stapla alternativ på mindre skärmar */
+        align-items: center;
+    }
+    .checkbox-label {
+        width: 100%; /* Full bredd */
+        justify-content: center;
+    }
+    .drink-grid {
+        grid-template-columns: 1fr; /* En kolumn på mindre skärmar */
+    }
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+}

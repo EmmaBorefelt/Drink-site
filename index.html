@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitta din perfekta drink!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header-image"></div>
+    <div class="container">
+        <header>
+            <h1>Skapa din drömdrink! 🍹</h1>
+            <p class="tagline">Välj vad du har i barskåpet, så fixar vi resten.</p>
+        </header>
+
+        <section class="selection-area">
+            <h2>Vad har du hemma?</h2>
+            <div class="alcohol-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" value="vodka">
+                    <span class="custom-checkbox"></span>
+                    Vodka
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="rom">
+                    <span class="custom-checkbox"></span>
+                    Rom
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="gin">
+                    <span class="custom-checkbox"></span>
+                    Gin
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="tequila">
+                    <span class="custom-checkbox"></span>
+                    Tequila
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="whiskey">
+                    <span class="custom-checkbox"></span>
+                    Whiskey
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="likor">
+                    <span class="custom-checkbox"></span>
+                    Likör (t.ex. Cointreau)
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="vin">
+                    <span class="custom-checkbox"></span>
+                    Vin (rött/vitt/mousserande)
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="bitter">
+                    <span class="custom-checkbox"></span>
+                    Bitter (t.ex. Angostura)
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="bubbelvatten">
+                    <span class="custom-checkbox"></span>
+                    Bubbelvatten
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="juice">
+                    <span class="custom-checkbox"></span>
+                    Juice (citron, apelsin, tranbär)
+                </label>
+                </div>
+            <button id="getSuggestionsBtn" class="action-button">Hitta drinkar!</button>
+        </section>
+
+        <section class="suggestions-area hidden" id="suggestionsArea">
+            <h2>Dina drinkförslag</h2>
+            <div id="drinkSuggestionsGrid" class="drink-grid">
+                </div>
+            <p id="noSuggestionsMessage" class="no-suggestions-message hidden">
+                Hoppsan! Inga drinkar hittades med de valda ingredienserna. Prova att lägga till fler, eller kanske en annan kombination?
+            </p>
+        </section>
+
+        <div id="drinkModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="modal-body">
+                    <img id="modalDrinkImage" src="" alt="Drinkbild" class="modal-drink-image">
+                    <h3 id="modalDrinkName"></h3>
+                    <p id="modalDrinkDescription" class="modal-description"></p>
+                    <div class="modal-details">
+                        <p><strong>Tillbehör:</strong> <span id="modalDrinkGarnish"></span></p>
+                        <p><strong>Tid:</strong> <span id="modalDrinkTime"></span></p>
+                    </div>
+                    <div class="modal-profile">
+                        <h4>Smakprofil:</h4>
+                        <ul>
+                            <li><strong>Sötma:</strong> <span id="modalDrinkSweetness"></span></li>
+                            <li><strong>Syrlighet:</strong> <span id="modalDrinkSourness"></span></li>
+                            <li><strong>Bitterhet:</strong> <span id="modalDrinkBitterness"></span></li>
+                            <li><strong>Passar till:</strong> <span id="modalDrinkPairsWith"></span></li>
+                        </ul>
+                    </div>
+                    <div class="modal-ingredients">
+                        <h4>Ingredienser:</h4>
+                        <ul id="modalDrinkIngredientsList"></ul>
+                    </div>
+                    <div class="modal-instructions">
+                        <h4>Instruktioner:</h4>
+                        <ol id="modalDrinkInstructionsList"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
