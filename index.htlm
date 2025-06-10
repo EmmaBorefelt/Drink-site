@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitta din perfekta drink!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body id="home-page">
+    <div class="header-image"></div>
+    <div class="container">
+        <header>
+            <h1>Skapa din drömdrink! ✨</h1>
+            <p class="tagline">Välj vad du har i barskåpet, så fixar vi resten!</p>
+        </header>
+
+        <section class="selection-area">
+            <h2>Vad har du hemma?</h2>
+            <div class="alcohol-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" value="vodka">
+                    <span class="custom-checkbox"></span>
+                    Vodka
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="tequila">
+                    <span class="custom-checkbox"></span>
+                    Tequila
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="whiskey">
+                    <span class="custom-checkbox"></span>
+                    Whiskey
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="rom">
+                    <span class="custom-checkbox"></span>
+                    Rom
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="gin">
+                    <span class="custom-checkbox"></span>
+                    Gin
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="bubbel">
+                    <span class="custom-checkbox"></span>
+                    Bubbel
+                </label>
+            </div>
+            <button id="getSuggestionsBtn" class="action-button">Sök drink!</button>
+        </section>
+
+        <section class="suggestions-area hidden" id="suggestionsArea">
+            <h2>Dina drinkförslag</h2>
+            <div id="drinkSuggestionsGrid" class="drink-grid">
+                </div>
+            <p id="noSuggestionsMessage" class="no-suggestions-message hidden">
+                Hoppsan! Inga drinkar hittades med de valda ingredienserna. Prova att lägga till fler, eller kanske en annan kombination?
+            </p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
